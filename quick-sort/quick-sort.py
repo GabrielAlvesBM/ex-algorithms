@@ -5,13 +5,14 @@ NUMBERS_LIST = '../lists/256-disordered-numbers.json'
 steps = 0
 
 def quickSort(arr):
-  global steps
-  steps += 1
+  # TODO: fazer os steps pegarem o real valor de operações (dessa forma n está correta)
+  # global steps
+  # steps += 1 
 
   if len(arr) < 2:
     return arr
 
-  middleIndex = (0 + len(arr)) // 2
+  middleIndex = len(arr) // 2
   pivot = arr[middleIndex]
   minors = [i for i in arr if i < pivot]
   biggers = [i for i in arr if i > pivot]
@@ -28,4 +29,4 @@ with open(NUMBERS_LIST, 'r') as file:
 sortedList = quickSort(numberList)
 
 print('Lista organizada: ', sortedList)
-print('Quantidade de passos: ', steps)
+# print('Quantidade de passos: ', steps)
