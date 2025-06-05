@@ -1,6 +1,6 @@
 import json
 
-NUMBERS_LIST = '../lists/50-disordered-numbers.json'
+NUMBERS_LIST = '../lists/disordered-numbers-128.json'
 
 steps = 0
 

@@ -1,6 +1,6 @@
 import json
 
-NAMES_LIST = '../lists/128-ordered-names-list.json'
+NAMES_LIST = '../lists/ordered-names-128.json'
 
 def binarySearch(list, item):
   low = 0
