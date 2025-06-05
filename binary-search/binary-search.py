@@ -1,6 +1,6 @@
 import json
 
-NAMES_LIST = '../lists/128-ordened-names-list.json'
+NAMES_LIST = '../lists/128-ordered-names-list.json'
 
 def binarySearch(list, item):
   low = 0
@@ -28,8 +28,8 @@ def binarySearch(list, item):
 
 with open(NAMES_LIST, 'r', encoding='utf-8') as file:
   data = json.load(file)
+  names = data['list']
 
-names = data['names']
 target = input('Nome: ')
 index = binarySearch(names, target)
 
