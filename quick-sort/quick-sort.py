@@ -2,23 +2,32 @@ import json
 
 NUMBERS_LIST = '../lists/disordered-numbers-128.json'
 
-steps = 0
+steps = {
+    'recursive_calls': 0,
+    'comparisons': 0
+}
 
 def quickSort(arr):
-  # TODO: fazer os steps pegarem o real valor de operações (dessa forma n está correta)
-  # global steps
-  # steps += 1 
+  steps['recursive_calls'] += 1
 
   if len(arr) < 2:
     return arr
 
   middleIndex = len(arr) // 2
   pivot = arr[middleIndex]
-  minors = [i for i in arr if i < pivot]
-  biggers = [i for i in arr if i > pivot]
-  equals = [i for i in arr if i == pivot]
+  minors = []
+  biggers = []
+  equals = []
 
-  # print(minors + equals + biggers)
+  for i in arr:
+    steps['comparisons'] += 1
+
+    if i < pivot:
+      minors.append(i)
+    elif i > pivot:
+      biggers.append(i)
+    else:
+      equals.append(i)
 
   return quickSort(minors) + equals + quickSort(biggers)
 
@@ -29,4 +38,6 @@ with open(NUMBERS_LIST, 'r') as file:
 sortedList = quickSort(numberList)
 
 print('Lista organizada: ', sortedList)
-# print('Quantidade de passos: ', steps)
+print('Chamadas recursivas: ', steps['recursive_calls'])
+print('Comparações: ', steps['comparisons'])
+print('Quantidade total de passos: ', steps['recursive_calls'] + steps['comparisons'])
